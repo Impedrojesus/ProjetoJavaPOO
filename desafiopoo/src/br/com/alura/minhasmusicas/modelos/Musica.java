@@ -1,6 +1,6 @@
 package br.com.alura.minhasmusicas.modelos;
 
-public class Musica {
+public class Musica extends Audio {
     private String album;
     private String cantor;
     private String genero;
@@ -29,9 +29,12 @@ public class Musica {
         this.genero = genero;
     }
 
-    public void reprooduz() {
-    }
-
-    public void curte() {
+    @Override
+    public double getClassificacao() {
+        if(this.getTotalReproducoes() > 2000) {
+            return 10;
+        } else {
+            return 7;
+        }
     }
 }
